@@ -19,7 +19,7 @@ jobs:
                   node-version: ${{ steps.nvm.outputs.version }}
             - name: Cache yarn version
               id: yarn-cache
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: '**/.yarn'
                   key: yarn-cache-${{ hashFiles('**/.yvmrc') }}
@@ -32,7 +32,7 @@ jobs:
               run: yarn policies set-version ${{ steps.yvm.outputs.version }}
             - name: Cache node_modules
               id: node-modules-cache
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: '**/node_modules'
                   key: node-modules-cache-${{ hashFiles('**/yarn.lock') }}
